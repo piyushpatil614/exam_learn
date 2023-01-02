@@ -1,0 +1,29 @@
+[
+    {
+        "id":1,
+        "question":"question A",
+        "optionA":"a",
+        "optionB":"b",
+        "optionC":"c",
+        "optionD":"d",
+        "correct":"optionA"
+    },
+    {
+        "id":2,
+        "question":"question A",
+        "optionA":"a",
+        "optionB":"b",
+        "optionC":"c",
+        "optionD":"d",
+        "correct":"optionA"
+    },
+    {
+        "id":3,
+        "question":"question A",
+        "optionA":"a",
+        "optionB":"b",
+        "optionC":"c",
+        "optionD":"d",
+        "correct":"optionA"
+    }
+]

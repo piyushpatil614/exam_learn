@@ -17,19 +17,29 @@ import AddForm from './AddForm';
   //   const addFormState=childSateref.current.
   // }
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-    
-    console.log(question.length) 
+    // question.push(temp)
+    // console.log(question) 
+
+  const questionAdd=(temp)=>{
+    question.push(temp)
+      handleClose()
+  }
+
     const addClicked=(event)=>{
+    
         console.log(event.currentTarget.id)
     }
     const updateClicked=(event)=>{
         console.log(event.currentTarget.id)
     }
     const deleteClicked=(event)=>{
+      let index=question.findIndex(question=>question.id===2)
+      delete question[index]
+      console.log(question)
         console.log(event.currentTarget.id)
+        
     }
   return (
     <div>
@@ -44,7 +54,7 @@ import AddForm from './AddForm';
         <Modal.Header closeButton>
           <Modal.Title>Add Questions</Modal.Title>
         </Modal.Header>
-        <Modal.Body> <AddForm/></Modal.Body>
+        <Modal.Body> <AddForm questionAdd={questionAdd} question={question} /></Modal.Body>
         {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
@@ -61,7 +71,7 @@ import AddForm from './AddForm';
       <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      {/* <th scope="col">#</th> */}
       <th scope="col">Question</th>
       <th scope="col">Option A</th>
       <th scope="col">Option B</th>
@@ -77,7 +87,7 @@ import AddForm from './AddForm';
   <tbody>
     {question.map(question=>(
         <tr>
-        <th scope="row">{question.id}</th>
+        {/* <th scope="row">{question.id}</th> */}
         <td>{question.question}</td>
         <td>{question.optionA}</td>
         <td>{question.optionB}</td>
@@ -88,38 +98,9 @@ import AddForm from './AddForm';
         <td id={question.id} onClick={deleteClicked}><RiDeleteBin5Fill size={25}/></td>
       </tr>
     ))}
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><IoMdCreate size={25}/></td>
-      <td><RiDeleteBin5Fill size={25}/></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><IoMdCreate size={25}/></td>
-      <td><RiDeleteBin5Fill size={25}/></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td><IoMdCreate size={25}/></td>
-      <td><RiDeleteBin5Fill size={25}/></td>
-    </tr>
+    
+    
+    
   </tbody>
 </table>
     </div>

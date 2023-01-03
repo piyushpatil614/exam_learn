@@ -17,6 +17,9 @@ import Update from './Update';
   // const getAddFormState=()=>{
   //   const addFormState=childSateref.current.
   // }
+
+const [questionData, setquestionData] = useState(question)
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -31,7 +34,9 @@ import Update from './Update';
     // console.log(question) 
 
   const questionAdd=(temp)=>{
-    question.push(temp)
+    questionData.push(temp)
+    setquestionData(questionData)
+
       handleClose()
   }
 
@@ -40,15 +45,25 @@ import Update from './Update';
         console.log(event.currentTarget.id)
     }
     const updateClicked=(event)=>{
-      let temp=question.find(question=>question.id===parseInt(event.currentTarget.id))
+      let temp=questionData.find(questionData=>questionData.id===parseInt(event.currentTarget.id))
       setupdateShow(true)
       setupdateData(temp)
         console.log(temp)
     }
     const deleteClicked=(event)=>{
-      let index=question.findIndex(question=>question.id===parseInt(event.currentTarget.id))
-      delete question[index]
-      console.log(question)       
+      let index=questionData.find(questionData=>questionData.id===parseInt(event.currentTarget.id))
+      let temp=[]
+      questionData.forEach(element => {
+        if(index.id!==element.id)
+        {
+          temp.push(element)
+        }
+      });
+
+      console.log(index.id)
+      console.log(temp)
+      setquestionData(temp)
+      
     }
   return (
     <div>
@@ -63,15 +78,15 @@ import Update from './Update';
         <Modal.Header closeButton>
           <Modal.Title>Add Questions</Modal.Title>
         </Modal.Header>
-        <Modal.Body> <AddForm questionAdd={questionAdd} question={question} /></Modal.Body>
+        <Modal.Body> <AddForm questionAdd={questionAdd} questionData={questionData} /></Modal.Body>
         {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer> */}
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer> */}
       </Modal>                          
                 </div>
             </div>
@@ -94,16 +109,16 @@ import Update from './Update';
     </tr>
   </thead>
   <tbody>
-    {question.map(question=>(
+    {questionData.map(questionData=>(
         <tr>
         {/* <th scope="row">{question.id}</th> */}
-        <td>{question.question}</td>
-        <td>{question.optionA}</td>
-        <td>{question.optionB}</td>
-        <td>{question.optionC}</td>
-        <td>{question.optionD}</td>
-        <td>{question.correct}</td>
-        <td id={question.id} onClick={updateClicked}><IoMdCreate size={25}/></td>
+        <td>{questionData.question}</td>
+        <td>{questionData.optionA}</td>
+        <td>{questionData.optionB}</td>
+        <td>{questionData.optionC}</td>
+        <td>{questionData.optionD}</td>
+        <td>{questionData.correct}</td>
+        <td id={questionData.id} onClick={updateClicked}><IoMdCreate size={25}/></td>
         <Modal show={updateShow} onHide={updateClose}>
         <Modal.Header closeButton>
           <Modal.Title>Update Questions</Modal.Title>
@@ -118,7 +133,7 @@ import Update from './Update';
           </Button>
         </Modal.Footer> */}
       </Modal>
-        <td id={question.id} onClick={deleteClicked}><RiDeleteBin5Fill size={25}/></td>
+        <td id={questionData.id} onClick={deleteClicked}><RiDeleteBin5Fill size={25}/></td>
       </tr>
     ))}
     

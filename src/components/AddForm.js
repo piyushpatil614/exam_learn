@@ -13,9 +13,8 @@ export default function AddForm(props) {
     e.preventDefault()
     const formData = new FormData(e.target),
           formDataObj = Object.fromEntries(formData.entries());
-          console.log(correct)
           let temp={
-            "id":props.question.length+1,
+            "id":props.questionData.length,
               "question":formDataObj['question'],
               "optionA":formDataObj['A'],
               "optionB":formDataObj['B'],

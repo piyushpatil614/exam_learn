@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import Button from 'react-bootstrap/Button';
 import AddForm from './AddForm';
+import Update from './Update';
 
 
 
@@ -19,6 +20,13 @@ import AddForm from './AddForm';
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [updateData, setupdateData] = useState(null);
+
+
+  const [updateShow, setupdateShow] = useState(false)
+  const updateClose=()=>setupdateShow(false)
+  const updateOpen=()=>setupdateShow(true) 
     // question.push(temp)
     // console.log(question) 
 
@@ -32,7 +40,10 @@ import AddForm from './AddForm';
         console.log(event.currentTarget.id)
     }
     const updateClicked=(event)=>{
-        console.log(event.currentTarget.id)
+      let temp=question.find(question=>question.id===parseInt(event.currentTarget.id))
+      setupdateShow(true)
+      setupdateData(temp)
+        console.log(temp)
     }
     const deleteClicked=(event)=>{
       let index=question.findIndex(question=>question.id===2)
@@ -95,6 +106,20 @@ import AddForm from './AddForm';
         <td>{question.optionD}</td>
         <td>{question.correct}</td>
         <td id={question.id} onClick={updateClicked}><IoMdCreate size={25}/></td>
+        <Modal show={updateShow} onHide={updateClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update Questions</Modal.Title>
+        </Modal.Header>
+        <Modal.Body> <Update updateData={updateData}/></Modal.Body>
+        {/* <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer> */}
+      </Modal>
         <td id={question.id} onClick={deleteClicked}><RiDeleteBin5Fill size={25}/></td>
       </tr>
     ))}

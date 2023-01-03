@@ -46,11 +46,9 @@ import Update from './Update';
         console.log(temp)
     }
     const deleteClicked=(event)=>{
-      let index=question.findIndex(question=>question.id===2)
+      let index=question.findIndex(question=>question.id===parseInt(event.currentTarget.id))
       delete question[index]
-      console.log(question)
-        console.log(event.currentTarget.id)
-        
+      console.log(question)       
     }
   return (
     <div>

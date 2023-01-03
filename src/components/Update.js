@@ -1,15 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { DropdownButton } from 'react-bootstrap';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 export default function Update(props) {
+  const [title, settitle] = useState('Options')
   const onFormSubmit = e => {
     e.preventDefault()
     const formData = new FormData(e.target),
           formDataObj = Object.fromEntries(formData.entries());
       console.log(formDataObj)
   }
+  console.log(props.updateData.correct)
   return (
     <>
    <Form onSubmit={onFormSubmit}>
@@ -25,7 +27,10 @@ export default function Update(props) {
         <Form.Label>option D</Form.Label>
         <Form.Control type="text" placeholder="option D" name='D' defaultValue={props.updateData.optionD}/>
         <Form.Label>Correct Answer</Form.Label>
-        <DropdownButton title='Options' name='correct' onSelect={function(evt){console.log(evt)}}>
+        <DropdownButton title={title}  name='correct'  onSelect={function(evt){
+          settitle(evt)
+          console.log(evt)}
+          }>
           <DropdownItem eventKey='option A'>A</DropdownItem>
           <DropdownItem eventKey='option B'>B</DropdownItem>
           <DropdownItem eventKey='option C'>C</DropdownItem>

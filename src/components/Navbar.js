@@ -20,6 +20,9 @@ export default function Navbar() {
         <li class="nav-item">
           <Link class="nav-link active"  to="/contact">Contact</Link>
         </li>
+        <li class="nav-item">
+          <Link class="nav-link active"  to="/table">Table</Link>
+        </li>
       </ul>
           </div>
   </div>

@@ -1,15 +1,15 @@
 import React,{useRef, useState} from 'react';
-import {FaRocket} from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux'
+import { Outlet, Link } from "react-router-dom";
 import {IoMdCreate} from 'react-icons/io';
 import {RiDeleteBin5Fill} from 'react-icons/ri';
 import{AiFillFileAdd} from 'react-icons/ai';
 import question from '../data/question.json';
 import Modal from 'react-bootstrap/Modal';
+import { add,remove } from '../reduxSlice/quizSlice';
 
-import Button from 'react-bootstrap/Button';
 import AddForm from './AddForm';
 import Update from './Update';
-
 
 
  const Table=()=> {
@@ -18,8 +18,11 @@ import Update from './Update';
   //   const addFormState=childSateref.current.
   // }
 
-const [questionData, setquestionData] = useState(question)
+  const quiz = useSelector((state) => state.quiz.value)
+  const dispatch = useDispatch()
 
+const [questionData, setquestionData] = useState(question)
+ 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,9 +33,21 @@ const [questionData, setquestionData] = useState(question)
   const [updateShow, setupdateShow] = useState(false)
   const updateClose=()=>setupdateShow(false)
   const updateOpen=()=>setupdateShow(true) 
-    // question.push(temp)
-    // console.log(question) 
 
+  const selectClick=(event)=>{
+    if(event.currentTarget.checked)
+    {
+      console.log(quiz)
+      dispatch(add(parseInt(event.currentTarget.id) ))
+    }
+    else
+    {
+      console.log(quiz)
+      dispatch(remove(parseInt(event.currentTarget.id)))
+    }
+    
+    console.log(event.currentTarget.checked+' '+event.currentTarget.id)
+  }
   const questionAdd=(temp)=>{
     questionData.push(temp)
     setquestionData(questionData)
@@ -44,12 +59,20 @@ const [questionData, setquestionData] = useState(question)
     
         console.log(event.currentTarget.id)
     }
+
+
     const updateClicked=(event)=>{
       let temp=questionData.find(questionData=>questionData.id===parseInt(event.currentTarget.id))
       setupdateShow(true)
       setupdateData(temp)
         console.log(temp)
     }
+
+    const quziStart=(event)=>{
+      console.log(quiz)
+    }
+
+
     const deleteClicked=(event)=>{
       let index=questionData.find(questionData=>questionData.id===parseInt(event.currentTarget.id))
       let temp=[]
@@ -96,6 +119,7 @@ const [questionData, setquestionData] = useState(question)
   <thead>
     <tr>
       {/* <th scope="col">#</th> */}
+      <th>Select</th>
       <th scope="col">Question</th>
       <th scope="col">Option A</th>
       <th scope="col">Option B</th>
@@ -112,6 +136,7 @@ const [questionData, setquestionData] = useState(question)
     {questionData.map(questionData=>(
         <tr>
         {/* <th scope="row">{question.id}</th> */}
+        <td>  <input class="form-check-input" type="checkbox" value="" id={questionData.id} onClick={selectClick}></input></td>
         <td>{questionData.question}</td>
         <td>{questionData.optionA}</td>
         <td>{questionData.optionB}</td>
@@ -138,7 +163,7 @@ const [questionData, setquestionData] = useState(question)
     ))}
     
     
-    
+    <Link to="/quiz" className="btn btn-primary my-3" onClick={quziStart}>Start Quiz</Link>
   </tbody>
 </table>
     </div>

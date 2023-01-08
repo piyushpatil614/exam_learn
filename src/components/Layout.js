@@ -10,12 +10,12 @@ export default function Layout() {
         <div className="container-fluid">
             <div className="row">
             <Navbar/>
-            <Outlet />
             </div>
             <div className="row">
-                <div className="col-2"></div>
-                <div className="col-8">
-                    <Table />
+                {/* <div className="col-2"></div> */}
+                <div className="col">
+                <Outlet />
+
                 </div>
             </div>
 

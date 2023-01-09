@@ -1,142 +1,152 @@
-import React ,{useState}from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { add,remove,removequestion,addquestion } from '../reduxSlice/quizSlice';
 
 export default function Quiz() {
   const location = useLocation();
-const data = location.state;
-console.log(data);
+  const data = location.state;
+  const quizData=useSelector((state) => state.quiz.quizData)
+  const [index, setindex] = useState(0)
+  
 
   const [optionA, setoptionA] = useState(false)
   const [optionB, setoptionB] = useState(false)
   const [optionC, setoptionC] = useState(false)
   const [optionD, setoptionD] = useState(false)
-
-  const mouseIn=(event)=>{
-    if(event.currentTarget.id==="optionA")
+  const [prv, setprv] = useState(true)
+  const [nex, setnex] = useState(false)
+  const previous=()=>{
+    if(index==(quizData.length-1))
     {
-      if(!optionA)
-      event.currentTarget.style.backgroundColor="rgb(8,169,245)"
-    } 
-    if(event.currentTarget.id==="optionB")
+      setnex(false)
+    }
+    if(index==1)
     {
-      if(!optionB)
-      event.currentTarget.style.backgroundColor="rgb(8,169,245)"
-    } 
-    if(event.currentTarget.id==="optionC")
-    {
-      if(!optionC)
-      event.currentTarget.style.backgroundColor="rgb(8,169,245)"
-    } 
-    if(event.currentTarget.id==="optionD")
-    {
-      if(!optionD)
-      event.currentTarget.style.backgroundColor="rgb(8,169,245)"
-    } 
-    
+      setprv(true)
+    }
+    setindex(index-1)
   }
-  const click=(event)=>{
-    if(event.currentTarget.id==="optionA")
+
+  const next=()=>{
+    if(index==0)
     {
-      if(!optionA)
-      {
+      setprv(false)
+    }
+    if(index==(quizData.length-2))
+    {
+      setnex(true)
+    }
+    setindex(index+1)
+  }
+
+  const mouseIn = (event) => {
+    if (event.currentTarget.id === "optionA") {
+      if (!optionA)
+        event.currentTarget.style.backgroundColor = "rgb(8,169,245)"
+    }
+    if (event.currentTarget.id === "optionB") {
+      if (!optionB)
+        event.currentTarget.style.backgroundColor = "rgb(8,169,245)"
+    }
+    if (event.currentTarget.id === "optionC") {
+      if (!optionC)
+        event.currentTarget.style.backgroundColor = "rgb(8,169,245)"
+    }
+    if (event.currentTarget.id === "optionD") {
+      if (!optionD)
+        event.currentTarget.style.backgroundColor = "rgb(8,169,245)"
+    }
+
+  }
+  const click = (event) => {
+    if (event.currentTarget.id === "optionA") {
+      if (!optionA) {
         setoptionA(true)
-        event.currentTarget.style.backgroundColor="green"
+        event.currentTarget.style.backgroundColor = "green"
       }
-      else
-      {
+      else {
         setoptionA(false)
       }
     }
-    
-    if(event.currentTarget.id==="optionB")
-    {
-      if(!optionB)
-      {
+
+    if (event.currentTarget.id === "optionB") {
+      if (!optionB) {
         setoptionB(true)
-        event.currentTarget.style.backgroundColor="green"
+        event.currentTarget.style.backgroundColor = "green"
       }
-      else
-      {
+      else {
         setoptionB(false)
       }
     }
 
-    if(event.currentTarget.id==="optionC")
-    {
-      if(!optionC)
-      {
+    if (event.currentTarget.id === "optionC") {
+      if (!optionC) {
         setoptionC(true)
-        event.currentTarget.style.backgroundColor="green"
+        event.currentTarget.style.backgroundColor = "green"
       }
-      else
-      {
+      else {
         setoptionC(false)
       }
     }
 
-    if(event.currentTarget.id==="optionD")
-    {
-      if(!optionD)
-      {
+    if (event.currentTarget.id === "optionD") {
+      if (!optionD) {
         setoptionD(true)
-        event.currentTarget.style.backgroundColor="green"
+        event.currentTarget.style.backgroundColor = "green"
       }
-      else
-      {
+      else {
         setoptionD(false)
       }
     }
-    
+
   }
-  const mouseOut=(event)=>{
-    if(event.currentTarget.id==="optionA")
-    {
-      if(!optionA)
-      event.currentTarget.style.backgroundColor="white"
+  const mouseOut = (event) => {
+    if (event.currentTarget.id === "optionA") {
+      if (!optionA)
+        event.currentTarget.style.backgroundColor = "white"
     }
 
-    if(event.currentTarget.id==="optionB")
-    {
-      if(!optionB)
-      event.currentTarget.style.backgroundColor="white"
-    }
-    
-    if(event.currentTarget.id==="optionC")
-    {
-      if(!optionC)
-      event.currentTarget.style.backgroundColor="white"
+    if (event.currentTarget.id === "optionB") {
+      if (!optionB)
+        event.currentTarget.style.backgroundColor = "white"
     }
 
-    if(event.currentTarget.id==="optionD")
-    {
-      if(!optionD)
-      event.currentTarget.style.backgroundColor="white"
+    if (event.currentTarget.id === "optionC") {
+      if (!optionC)
+        event.currentTarget.style.backgroundColor = "white"
+    }
+
+    if (event.currentTarget.id === "optionD") {
+      if (!optionD)
+        event.currentTarget.style.backgroundColor = "white"
     }
 
   }
   return (
     <>
-    <div className="container my-5">
-      <div className="row justify-content-center">
-        <div className="col-10 align-self-center">
-        <div className="card">
-  <div className="card-header">
-   <h4>Featured</h4> 
-  </div>
-  <div className="card-body my-2">
-    <h5 className="card-title">Special title treatment</h5>
-    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionA" onClick={click}>Option 1</div>
-    <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionB" onClick={click}>Option 2</div>
-    <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionC" onClick={click}>Option 3</div>
-    <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionD" onClick={click}>Option 4</div>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+      <div className="container my-5">
+        <div className="row justify-content-center">
+          <div className="col-10 align-self-center">
+            <div className="card">
+              <div className="card-header">
+                <h4>Featured</h4>
+              </div>
+              <div className="card-body my-2">
+                <h5 className="card-title">Question {index+1}</h5>
+                <p className="card-text">{quizData[index].question}</p>
+                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionA" onClick={click}>{quizData[index].optionA}</div>
+                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionB" onClick={click}>{quizData[index].optionB}</div>
+                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionC" onClick={click}>{quizData[index].optionC}</div>
+                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionD" onClick={click}>{quizData[index].optionD}</div>
+                <button className="btn btn-primary mx-3"  onClick={previous} disabled={prv}>Previous</button>
+                <button className="btn btn-primary mx-3"  onClick={next} disabled={nex}>Next</button>
+              </div>
+            </div>
 
+          </div>
         </div>
       </div>
-    </div>
 
 
     </>

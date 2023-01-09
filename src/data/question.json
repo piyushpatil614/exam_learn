@@ -1,29 +1,29 @@
 [
     {
         "id":0,
-        "question":"question A1",
-        "optionA":"a",
-        "optionB":"b",
-        "optionC":"c",
-        "optionD":"d",
-        "correct":"optionA"
+        "question":"Which of the following is the correct name of React.js?",
+        "optionA":"React",
+        "optionB":"React.js",
+        "optionC":"ReactJS",
+        "optionD":"All of the above",
+        "correct":"optionD"
     },
     {
         "id":1,
-        "question":"question A2",
-        "optionA":"a",
-        "optionB":"b",
-        "optionC":"c",
-        "optionD":"d",
-        "correct":"optionA"
+        "question":"What of the following is used in React.js to increase performance?",
+        "optionA":"Original DOM",
+        "optionB":"Virtual DOM",
+        "optionC":"Both A and B.",
+        "optionD":"None of the above.",
+        "correct":"optionB"
     },
     {
         "id":2,
-        "question":"question A3",
-        "optionA":"a",
-        "optionB":"b",
-        "optionC":"c",
-        "optionD":"d",
-        "correct":"optionA"
+        "question":"Which of the following acts as the input of a class-based component?",
+        "optionA":"Class",
+        "optionB":"Factory",
+        "optionC":"Render",
+        "optionD":"Props",
+        "correct":"optionD"
     }
 ]

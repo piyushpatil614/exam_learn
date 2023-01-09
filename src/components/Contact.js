@@ -6,14 +6,15 @@ import {IoLogoWhatsapp} from 'react-icons/io'
 
 import Image from "react-bootstrap/Image";
 export default function Contact() {
+  
   return (
    <>
     <div className="text-center my-5">
-    <Image src="https://media.geeksforgeeks.org/wp-content/uploads/20210425000233/test-300x297.png" roundedCircle/>
+    <Image className='roundedCircle rounded'   src="https://i.ibb.co/jWBXm3r/contact.png"></Image>
     </div>
    
    <div className="ratio ratio-16x9">
-   <iframe width="784" height="441" src="https://www.youtube.com/embed/GE6IRTLkvFg" title="ChatApp using Blockchain in 3 minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+   <iframe width="200" height="200" src="https://www.youtube.com/embed/GE6IRTLkvFg" title="ChatApp using Blockchain in 3 minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       {/* <iframe
         src="https://www.youtube.com/embed/watch?v=WvTGSYedSPE"
         title="YouTube video"

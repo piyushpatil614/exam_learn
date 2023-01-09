@@ -1,10 +1,16 @@
 import React ,{useState}from 'react'
+import { useLocation } from 'react-router-dom'
 
 export default function Quiz() {
+  const location = useLocation();
+const data = location.state;
+console.log(data);
+
   const [optionA, setoptionA] = useState(false)
   const [optionB, setoptionB] = useState(false)
   const [optionC, setoptionC] = useState(false)
   const [optionD, setoptionD] = useState(false)
+
   const mouseIn=(event)=>{
     if(event.currentTarget.id==="optionA")
     {

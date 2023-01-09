@@ -6,7 +6,7 @@ import {RiDeleteBin5Fill} from 'react-icons/ri';
 import{AiFillFileAdd} from 'react-icons/ai';
 import question from '../data/question.json';
 import Modal from 'react-bootstrap/Modal';
-import { add,remove } from '../reduxSlice/quizSlice';
+import { add,remove,removequestion,addquestion } from '../reduxSlice/quizSlice';
 
 import AddForm from './AddForm';
 import Update from './Update';
@@ -19,7 +19,10 @@ import Update from './Update';
   // }
 
   const quiz = useSelector((state) => state.quiz.value)
+  const quizData=useSelector((state) => state.quiz.quizData)
   const dispatch = useDispatch()
+
+
 
 const [questionData, setquestionData] = useState(question)
  
@@ -35,14 +38,18 @@ const [questionData, setquestionData] = useState(question)
   const updateOpen=()=>setupdateShow(true) 
 
   const selectClick=(event)=>{
+    let temp=questionData.find(questionData=>questionData.id===parseInt(event.currentTarget.id))
+    console.log(temp)
     if(event.currentTarget.checked)
     {
-      console.log(quiz)
+      console.log(quizData)
+      dispatch(addquestion(temp))
       dispatch(add(parseInt(event.currentTarget.id) ))
     }
     else
     {
-      console.log(quiz)
+      console.log(quizData)
+      dispatch(removequestion(temp))
       dispatch(remove(parseInt(event.currentTarget.id)))
     }
     
@@ -163,7 +170,7 @@ const [questionData, setquestionData] = useState(question)
     ))}
     
     
-    <Link to="/quiz" className="btn btn-primary my-3" onClick={quziStart}>Start Quiz</Link>
+    <Link to="/quiz"state={{quizData}} className="btn btn-primary my-3" onClick={quziStart}>Start Quiz</Link>
   </tbody>
 </table>
     </div>

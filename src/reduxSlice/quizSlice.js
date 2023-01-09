@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     value: [],
+    quizData:[]
   }
+
 
   export const quizSlice=createSlice({
     name:'quiz',
@@ -12,10 +14,18 @@ const initialState = {
         },
         remove:(state,action)=>{
            let i= state.value.indexOf(action.payload)
-            state.value.slice(i,1)      
-        }
+            state.value.splice(i,1)      
+        },
+        addquestion:(state,action)=>{
+            state.quizData.push(action.payload)
+        },
+        removequestion:(state,action)=>{
+            let i= state.value.indexOf(action.payload)
+             state.quizData.splice(i,1)      
+         },
+        
     }
   })
 
-  export const {add,remove}=quizSlice.actions;
+  export const {add,remove,addquestion,removequestion}=quizSlice.actions;
   export default quizSlice.reducer

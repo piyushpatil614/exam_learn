@@ -25,5 +25,41 @@
         "optionC":"Render",
         "optionD":"Props",
         "correct":"optionD"
+    },
+    {
+        "id":3,
+        "question":"Which of the following keyword is used to create a class inheritance?",
+        "optionA":"Create",
+        "optionB":"Inherits",
+        "optionC":"Extends",
+        "optionD":"This",
+        "correct":"optionC"
+    },
+    {
+        "id":4,
+        "question":"What is the default port where webpack-server runs?",
+        "optionA":"8000",
+        "optionB":"8080",
+        "optionC":"3000",
+        "optionD":"3030",   
+        "correct":"optionB"
+    },
+    {
+        "id":5,
+        "question":"How many numbers of elements a valid react component can return?",
+        "optionA":"1",
+        "optionB":"2",
+        "optionC":"4",
+        "optionD":"5",
+        "correct":"optionA"
+    },
+    {
+        "id":6,
+        "question":"What is a state in React?",
+        "optionA":"A permanent storage.",
+        "optionB":"Internal storage of the component.",
+        "optionC":"External storage of the component.",
+        "optionD":"None of the above.",
+        "correct":"optionB"
     }
 ]

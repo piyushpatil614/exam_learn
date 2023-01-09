@@ -6,7 +6,7 @@ export default function Blogs() {
   return (
     <div>
       Blogs
-     <Quiz/>
+     
     </div>
   )
 }

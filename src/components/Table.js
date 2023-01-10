@@ -10,6 +10,7 @@ import { add,remove,removequestion,addquestion } from '../reduxSlice/quizSlice';
 
 import AddForm from './AddForm';
 import Update from './Update';
+import Delete from './toast/Delete'
 
 
  const Table=()=> {

@@ -60,7 +60,7 @@ export default function AddForm(props) {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group> */}
-      <div class="text-center">
+      <div className="text-center">
       <Button  variant="primary" type="submit" >
         Submit
       </Button>

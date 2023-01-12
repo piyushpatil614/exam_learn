@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { add,remove,removequestion,addquestion } from '../reduxSlice/quizSlice';
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Quiz() {
   const location = useLocation();
   const data = location.state;
   const quizData=useSelector((state) => state.quiz.quizData)
   const [index, setindex] = useState(0)
-  
+  const navigate = useNavigate();
 
   const [optionA, setoptionA] = useState(false)
   const [optionB, setoptionB] = useState(false)
@@ -101,6 +104,17 @@ export default function Quiz() {
     }
 
   }
+
+  const endQuiz=()=>{
+    setTimeout(() => {
+      navigate("/")  
+    }, 2000);
+    toast.success('Quiz submitted !', {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2000
+    });
+  }
+
   const mouseOut = (event) => {
     if (event.currentTarget.id === "optionA") {
       if (!optionA)
@@ -125,6 +139,15 @@ export default function Quiz() {
   }
   return (
     <>
+
+    <div className="container">
+      <div className="row justify-content-end">
+        <div className="col-3 align-self-end">
+        <button className="btn btn-primary mx-3" onClick={endQuiz}>End Quiz</button>
+        </div>
+        <ToastContainer autoClose={2000} />
+      </div>
+    </div>
       <div className="container my-5">
         <div className="row justify-content-center">
           <div className="col-10 align-self-center">

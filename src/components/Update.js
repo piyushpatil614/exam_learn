@@ -49,7 +49,7 @@ export default function Update(props) {
       </Form.Group> */}
       <div class="text-center">
       <Button  variant="primary" type="submit" >
-        Submit
+        Updated
       </Button>
       </div>
     </Form></>

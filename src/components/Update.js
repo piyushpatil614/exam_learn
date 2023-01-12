@@ -4,14 +4,16 @@ import Form from 'react-bootstrap/Form';
 import { DropdownButton } from 'react-bootstrap';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
 export default function Update(props) {
-  const [title, settitle] = useState('Options')
+  const [title, settitle] = useState(props.updateData.correct)
   const onFormSubmit = e => {
     e.preventDefault()
     const formData = new FormData(e.target),
           formDataObj = Object.fromEntries(formData.entries());
-      console.log(formDataObj)
+          formDataObj["correct"]=title
+          formDataObj["id"]=props.updateData.id
+          props.questionUpdate(formDataObj)
   }
-  console.log(props.updateData.correct)
+  
   return (
     <>
    <Form onSubmit={onFormSubmit}>
@@ -27,14 +29,11 @@ export default function Update(props) {
         <Form.Label>option D</Form.Label>
         <Form.Control type="text" placeholder="option D" name='D' defaultValue={props.updateData.optionD}/>
         <Form.Label>Correct Answer</Form.Label>
-        <DropdownButton title={title}  name='correct'  onSelect={function(evt){
-          settitle(evt)
-          console.log(evt)}
-          }>
-          <DropdownItem eventKey='option A'>A</DropdownItem>
-          <DropdownItem eventKey='option B'>B</DropdownItem>
-          <DropdownItem eventKey='option C'>C</DropdownItem>
-          <DropdownItem eventKey='option D'>D</DropdownItem>
+        <DropdownButton title={title}  name='correct'>
+          <DropdownItem eventKey='option A' onClick={()=>settitle('optionA')}>A</DropdownItem>
+          <DropdownItem eventKey='option B' onClick={()=>settitle('optionB')}>B</DropdownItem>
+          <DropdownItem eventKey='option C' onClick={()=>settitle('optionC')}>C</DropdownItem>
+          <DropdownItem eventKey='option D' onClick={()=>settitle('optionD')}>D</DropdownItem>
         </DropdownButton>
         {/* <Form.Text className="text-muted">
           We'll never share your email with anyone else.

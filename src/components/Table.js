@@ -63,6 +63,20 @@ const [questionData, setquestionData] = useState(question)
       handleClose()
   }
 
+  const questionUpdate=(temp)=>{
+    
+    let index=questionData.findIndex(questionData=>questionData.id===parseInt(temp.id))
+    console.log("Update madhe")
+    questionData[index].correct=temp.correct
+    questionData[index].question=temp.question
+    questionData[index].optionA=temp.A
+    questionData[index].optionB=temp.B
+    questionData[index].optionC=temp.C
+    questionData[index].optionD=temp.D
+    setquestionData(questionData )
+    
+  }
+
     const addClicked=(event)=>{
     
         console.log(event.currentTarget.id)
@@ -156,7 +170,7 @@ const [questionData, setquestionData] = useState(question)
         <Modal.Header closeButton>
           <Modal.Title>Update Questions</Modal.Title>
         </Modal.Header>
-        <Modal.Body> <Update updateData={updateData}/></Modal.Body>
+        <Modal.Body> <Update updateData={updateData} questionUpdate={questionUpdate}/></Modal.Body>
         {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

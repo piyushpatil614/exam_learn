@@ -20,6 +20,15 @@ export default function Quiz() {
   const [prv, setprv] = useState(true)
   const [nex, setnex] = useState(false)
   const previous=()=>{
+    setoptionA(false)
+    setoptionB(false)
+    setoptionC(false)
+    setoptionD(false)
+    document.getElementById("optionA").style.backgroundColor="white"
+    document.getElementById("optionB").style.backgroundColor="white"
+    document.getElementById("optionC").style.backgroundColor="white"
+    document.getElementById("optionD").style.backgroundColor="white"
+
     if(index==(quizData.length-1))
     {
       setnex(false)
@@ -32,6 +41,15 @@ export default function Quiz() {
   }
 
   const next=()=>{
+    setoptionA(false)
+    setoptionB(false)
+    setoptionC(false)
+    setoptionD(false)
+    document.getElementById("optionA").style.backgroundColor="white"
+    document.getElementById("optionB").style.backgroundColor="white"
+    document.getElementById("optionC").style.backgroundColor="white"
+    document.getElementById("optionD").style.backgroundColor="white"
+    
     if(index==0)
     {
       setprv(false)

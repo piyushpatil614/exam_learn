@@ -23,7 +23,7 @@ export default function Quiz() {
     setoptionA(false)
     setoptionB(false)
     setoptionC(false)
-    setoptionD(false)
+    setoptionD(false) 
     document.getElementById("optionA").style.backgroundColor="white"
     document.getElementById("optionB").style.backgroundColor="white"
     document.getElementById("optionC").style.backgroundColor="white"
@@ -44,7 +44,7 @@ export default function Quiz() {
     setoptionA(false)
     setoptionB(false)
     setoptionC(false)
-    setoptionD(false)
+    setoptionD(false) 
     document.getElementById("optionA").style.backgroundColor="white"
     document.getElementById("optionB").style.backgroundColor="white"
     document.getElementById("optionC").style.backgroundColor="white"
@@ -176,10 +176,10 @@ export default function Quiz() {
               <div className="card-body my-2">
                 <h5 className="card-title">Question {index+1}</h5>
                 <p className="card-text">{quizData[index].question}</p>
-                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionA" onClick={click}>{quizData[index].optionA}</div>
-                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionB" onClick={click}>{quizData[index].optionB}</div>
-                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionC" onClick={click}>{quizData[index].optionC}</div>
-                <div className="card-body border rounded my-2" onMouseEnter={mouseIn} onMouseOut={mouseOut} id="optionD" onClick={click}>{quizData[index].optionD}</div>
+                <div className="card-body border rounded my-2" onMouseOver={mouseIn} onMouseOut={mouseOut} id="optionA" onClick={click}>{quizData[index].optionA}</div>
+                <div className="card-body border rounded my-2" onMouseOver={mouseIn} onMouseOut={mouseOut} id="optionB" onClick={click}>{quizData[index].optionB}</div>
+                <div className="card-body border rounded my-2" onMouseOver={mouseIn} onMouseOut={mouseOut} id="optionC" onClick={click}>{quizData[index].optionC}</div>
+                <div className="card-body border rounded my-2" onMouseOver={mouseIn} onMouseOut={mouseOut} id="optionD" onClick={click}>{quizData[index].optionD}</div>
                 <button className="btn btn-primary mx-3"  onClick={previous} disabled={prv}>Previous</button>
                 <button className="btn btn-primary mx-3"  onClick={next} disabled={nex}>Next</button>
               </div>

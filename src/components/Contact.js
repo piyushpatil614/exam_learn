@@ -35,7 +35,7 @@ export default function Contact() {
             <a className="btn btn-default btn-lg btn-block" href="https://github.com/piyushpatil614" target="_blank"><i className="fa fa-github fa-2x"></i>Github <AiOutlineGithub size={35}/></a>
           </div>
           <div className="col-3 contact-button">
-            <a className="btn btn-default btn-lg btn-block" href="https://www.youtube.com/@adamantine5341" target="_blank"><i className="fa fa-fire fa-2x"></i> Youtube <BsYoutube size={35}/></a>
+            <a className="btn btn-default btn-lg btn-block" href="https://www.youtube.com/@adamantine5341" target="_blank"><i className="fa fa-fire fa-2x" ></i> Youtube <BsYoutube size={35}/></a>
           </div>
           <div className="col-3 contact-button">
             <a className="btn btn-default btn-lg btn-block" href="https://www.linkedin.com/in/coreyalanwhite" target="_blank"><i className="fa fa-linkedin fa-2x"></i> Upwork <SiUpwork size={35}/></a>
@@ -44,10 +44,10 @@ export default function Contact() {
             <a className="btn btn-default btn-lg btn-block" href="https://twitter.com/corey_a_white/" target="_blank"><i className="fa fa-twitter fa-2x"></i> Fiver <SiFiverr size={35}/> </a>
           </div>
           <div className="col-4 contact-button">
-            <a className="btn btn-default btn-lg btn-block" href="#" target="_blank"><i className="fa fa-linkedin fa-2x"></i> +91-9158071351  <IoLogoWhatsapp size={35}/></a>
+            <a className="btn btn-default btn-lg btn-block" href="https://www.linkedin.com/in/coreyalanwhite" target="_blank"><i className="fa fa-linkedin fa-2x"></i> +91-9158071351  <IoLogoWhatsapp size={35}/></a>
           </div>
           <div className="col-6 contact-button">
-            <a className="btn btn-default btn-lg btn-block" href="#" target="_blank"><i className="fa fa-twitter fa-2x"></i> piyushpatil6140@gmail.com <AiOutlineMail size={35}/> </a>
+            <a className="btn btn-default btn-lg btn-block" href="https://twitter.com/corey_a_white/" target="_blank"><i className="fa fa-twitter fa-2x"></i> piyushpatil6140@gmail.com <AiOutlineMail size={35}/> </a>
           </div>
        
     </div>

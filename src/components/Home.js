@@ -3,7 +3,7 @@ import React from 'react'
 export default function Home() {
 
   const onmouseover=(e) => {
-    e.currentTarget.style.transform="scale(1.1)"
+    e.currentTarget.style.transform="scale(1.02)"
   }
   const onmouseout=(e) => {
      e.currentTarget.style.transform="scale(1)"
@@ -91,7 +91,7 @@ export default function Home() {
             
           </div>
 
-          <div className="container my-3 ">
+          <div className="container my-5">
             <div className="row align-items-center">
               <div className="col-4">
                 <hr></hr>
@@ -107,7 +107,7 @@ export default function Home() {
 
 
           <div className="container shadow">
-            <div className="row my-3">
+            <div className="row my-3 justify-content-center mx-4">
               <div className="col-3">
                 <img loading='lazy' width={100} height={100} src="https://i.ibb.co/my8ppZr/mongodb.jpg" className="card-img-top border-bottom border-2" alt="..." onMouseOver={onmouseover} onMouseOut={onmouseout}/>
               </div>
@@ -117,14 +117,15 @@ export default function Home() {
               <div className="col-3">
                 <img loading='lazy' width={100} height={100} src="https://i.ibb.co/nz3b1G0/python.png" className="card-img-top border-bottom border-2" alt="..." onMouseOver={onmouseover} onMouseOut={onmouseout}/>
               </div>
+             
+              <div className="row my-3 justify-content-center">
               <div className="col-3">
                 <img loading='lazy' width={100} height={100} src="https://i.ibb.co/0JWGRMd/java.jpg" className="card-img-top border-bottom border-2" alt="..." onMouseOver={onmouseover} onMouseOut={onmouseout}/>
               </div>
-              <div className="row my-3 justify-content-center">
-                <div className="col-3 align-self-center">
+                <div className="col-3">
                   <img loading='lazy' width={100} height={100} src="https://i.ibb.co/n07d4j3/firebase.png" className="card-img-top border-bottom border-2" alt="..." onMouseOver={onmouseover} onMouseOut={onmouseout}/>
                 </div>
-                <div className="col-3 align-self-center">
+                <div className="col-3">
                   <img loading='lazy' width={100} height={100} src="https://i.ibb.co/tJp3SNC/html5.png" className="card-img-top border-bottom border-2" alt="..." onMouseOver={onmouseover} onMouseOut={onmouseout}/>
                 </div>
               </div>

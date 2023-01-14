@@ -21,7 +21,7 @@ export default function Navbar() {
           <Link className="nav-link active"  to="/contact">Contact</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link active"  to="/table">Table</Link>
+          <Link className="nav-link active"  to="/table">Quiz</Link>
         </li>
       </ul>
           </div>

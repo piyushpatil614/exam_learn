@@ -1,29 +1,65 @@
 [
     {
+        "id":0,
+        "question":"Which of the following is the correct name of React.js?",
+        "optionA":"React",
+        "optionB":"React.js",
+        "optionC":"ReactJS",
+        "optionD":"All of the above",
+        "correct":"optionD"
+    },
+    {
         "id":1,
-        "question":"question A",
-        "optionA":"a",
-        "optionB":"b",
-        "optionC":"c",
-        "optionD":"d",
-        "correct":"optionA"
+        "question":"What of the following is used in React.js to increase performance?",
+        "optionA":"Original DOM",
+        "optionB":"Virtual DOM",
+        "optionC":"Both A and B.",
+        "optionD":"None of the above.",
+        "correct":"optionB"
     },
     {
         "id":2,
-        "question":"question A",
-        "optionA":"a",
-        "optionB":"b",
-        "optionC":"c",
-        "optionD":"d",
-        "correct":"optionA"
+        "question":"Which of the following acts as the input of a class-based component?",
+        "optionA":"Class",
+        "optionB":"Factory",
+        "optionC":"Render",
+        "optionD":"Props",
+        "correct":"optionD"
     },
     {
         "id":3,
-        "question":"question A",
-        "optionA":"a",
-        "optionB":"b",
-        "optionC":"c",
-        "optionD":"d",
+        "question":"Which of the following keyword is used to create a class inheritance?",
+        "optionA":"Create",
+        "optionB":"Inherits",
+        "optionC":"Extends",
+        "optionD":"This",
+        "correct":"optionC"
+    },
+    {
+        "id":4,
+        "question":"What is the default port where webpack-server runs?",
+        "optionA":"8000",
+        "optionB":"8080",
+        "optionC":"3000",
+        "optionD":"3030",   
+        "correct":"optionB"
+    },
+    {
+        "id":5,
+        "question":"How many numbers of elements a valid react component can return?",
+        "optionA":"1",
+        "optionB":"2",
+        "optionC":"4",
+        "optionD":"5",
         "correct":"optionA"
+    },
+    {
+        "id":6,
+        "question":"What is a state in React?",
+        "optionA":"A permanent storage.",
+        "optionB":"Internal storage of the component.",
+        "optionC":"External storage of the component.",
+        "optionD":"None of the above.",
+        "correct":"optionB"
     }
 ]

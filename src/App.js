@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import NoPage from "./components/NoPage";
 import Layout from './components/Layout';
 import Table from './components/Table';
+import Quiz from './components/Quiz';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="blogs" element={<Blogs />} />
+          <Route path="quiz" element={<Quiz />} />
           <Route path="table" element={<Table />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
